@@ -153,30 +153,47 @@ section {
 .hero {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-image {
+    flex: 0 0 350px;
+    display: flex;
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
+    align-items: center;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out;
+.profile-img {
+    width: 350px;
+    height: 420px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+    animation: fadeInRight 1s ease-out, float-profile 6s ease-in-out infinite;
 }
 
-.hero .gradient-text {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.hero p {
-    font-size: 1.3rem;
-    color: #94a3b8;
-    max-width: 600px;
-    animation: fadeInUp 1s ease-out 0.2s both;
+@keyframes float-profile {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 .cta-buttons {
@@ -435,6 +452,24 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-image {
+        flex: 0 0 250px;
+    }
+
+    .profile-img {
+        width: 250px;
+        height: 250px;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
