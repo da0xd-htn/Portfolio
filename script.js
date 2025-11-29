@@ -60,7 +60,7 @@ function openVideo(projectName) {
     
     // Set video source based on project
     if (projectName === 'ocean-storm') {
-        source.src = 'videos/ocean-storm.mp4'; // Change this to your video path
+        source.src = 'ocean-storm.mkv'; // Change this to your video path
     }
     
     video.load();
