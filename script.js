@@ -51,3 +51,41 @@
                 shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
             });
         });
+
+// Video Modal Functions
+function openVideo(projectName) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('projectVideo');
+    const source = document.getElementById('videoSource');
+    
+    // Set video source based on project
+    if (projectName === 'ocean-storm') {
+        source.src = 'videos/ocean-storm.mp4'; // Change this to your video path
+    }
+    
+    video.load();
+    modal.style.display = 'flex';
+    video.play();
+}
+
+function closeVideo() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('projectVideo');
+    
+    video.pause();
+    modal.style.display = 'none';
+}
+
+// Close modal when clicking outside video
+document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeVideo();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeVideo();
+    }
+});
